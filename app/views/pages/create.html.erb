@@ -1,12 +1,31 @@
-<% if @user.errors.any?%>
-    <div id="error_explanation">
-    <h2> <%= pluralize(@user.errors.count, "error" ) %></h2>
-    <ul> <% @user.errors.full_messages.each do |msg|%>
-    <li><%= msg %></li>
-    <% end %>
-    </ul>
-    </div>
-<% else %>
-    <h1>Te registraste con exito</h1>
-<% end %>
+<nav class="navbar navbar-light bg-light justify-content-between"><a class="navbar-brand">Navbar</a>
+<form class="form-inline">
+<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-table="Search" name="email">
+<button class="btn btn-outline-succes my-2 my-sm-0" type="submit">Search</button>
+</form>
+</nav>
+
+<table class="table">
+
+   
+
+
+
+    <tr>
+        <th> Email </th>
+        <th> Edad</th>
+        <th> Comentario</th>
+    </tr>
+        
+
+
+    <% @users.each do |user|%>
+        <tr>
+            <td><%= user.titulo%></td>
+            <td><%= user.fecha%></td>
+            <td><%= image_tag user.imagen.to_S %></td>
+            <td><%= user.contenido%></td>
+        </tr>
+    <%end%>
+</table>
 

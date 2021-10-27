@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_022439) do
+ActiveRecord::Schema.define(version: 2021_10_27_025854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,21 @@ ActiveRecord::Schema.define(version: 2021_10_27_022439) do
     t.check_constraint "(stock)::numeric >= 0.00", name: "pizzas_stock_check"
   end
 
+  create_table "titulos", force: :cascade do |t|
+    t.string "fecha"
+    t.string "imagen"
+    t.string "contenido"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "titulo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "fecha"
+    t.string "imagen"
+    t.string "contenido"
   end
 
   create_table "usuario", id: :integer, default: nil, force: :cascade do |t|
