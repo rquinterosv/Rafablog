@@ -5,6 +5,18 @@
 </form>
 </nav>
 
+<% if @user.errors.any?%>
+    <div id="error_explanation">
+    <h2> <%= pluralize(@user.errors.count, "error" ) %></h2>
+    <ul> <% @user.errors.full_messages.each do |msg|%>
+    <li><%= msg %></li>
+    <% end %>
+    </ul>
+    </div>
+<% else %>
+    <h1>Te registraste con exito</h1>
+<% end %>
+
 <table class="table">
 
    
@@ -23,7 +35,7 @@
         <tr>
             <td><%= user.titulo%></td>
             <td><%= user.fecha%></td>
-            <td><%= image_tag user.imagen.to_S %></td>
+            <td><%= user.imagen %></td>
             <td><%= user.contenido%></td>
         </tr>
     <%end%>
